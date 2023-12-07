@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+       "max": {
+          "type": "string",
+          "metadata": {
+             "description": "description"
+          }
+       },"milan": {
+          "type": "string",
+          "allowedValues": [
+             "Standard_LRS",
+             "Standard_GRS",
+             "Standard_RAGRS"
+          ],
+          "defaultValue": "Standard_LRS",
+          "metadata": {
+             "description": "description"
+          }
+       }
+    },
+    "functions": [],
+    "variables": {
+       "apivers": "2023-01-01"
+    },
+    "resources": [
+       {
+          "name": "[toLower(concat(parameters('max'),uniqueString(resourceGroup().id)))]",
+          "type": "Microsoft.Storage/storageAccounts",
+          "apiVersion": "[variables('apivers')]",
+          "tags": {
+             "displayName": "[toLower(concat(parameters('max'),uniqueString(resourceGroup().id)))]"
+          },
+          "location": "[resourceGroup().location]",
+          "kind": "StorageV2",
+          "sku": {
+             "name": "[parameters('milan')]",
+             "tier": "Premium"
+          }
+       }
+    ],
+    "outputs": {}
+ }
+ 
+ 
+ 
