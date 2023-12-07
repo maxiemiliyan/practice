@@ -14,7 +14,7 @@
              "Standard_GRS",
              "Standard_RAGRS"
           ],
-          "defaultValue": "Standard_LRS",
+          "defaultValue": "Standard_GRS",
           "metadata": {
              "description": "description"
           }
