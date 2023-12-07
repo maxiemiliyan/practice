@@ -10,7 +10,6 @@
        },"milan": {
           "type": "string",
           "allowedValues": [
-             "Standard_LRS",
              "Standard_GRS",
              "Standard_RAGRS"
           ],
